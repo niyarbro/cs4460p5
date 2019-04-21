@@ -56,5 +56,17 @@ h1 {
   font: 14px sans-serif;
   overflow-wrap: normal;
   position: relative;
-  padding-right: 50%
+}
+
+#pg-story-text {
+  font: 14px sans-serif;
+  overflow-wrap: normal;
+  position: relative;
+}
+
+#story-header-text {
+  font: 16px sans-serif;
+  font-weight: bold;
+  overflow-wrap: normal;
+  position: relative;
 }

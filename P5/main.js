@@ -12,7 +12,6 @@ var svg = d3.select('#main')
   .style('border', '1px solid gray')
   .append("g");
 
-
 var fader = function(color) { return d3.interpolateRgb(color, "#fff")(0.2); },
     color = d3.scaleOrdinal(d3.schemeCategory20.map(fader)),
     format = d3.format(",d");
@@ -87,7 +86,10 @@ d3.csv("colleges100.csv", function(error, data) {
       .attr('checked', 'checked')
       .on('click', function () {
           sortBy(data, node, 'Mean Earnings 8 years After Entry');
-      });
+          d3.select('#story-header').select('text').text("Salary");
+          d3.select('#pg-story').select('text')
+            .text("After analyzing the researched data, the higher mean salaries from college alumni seem to come from the Mid-Atlantic and New England regions, and the lower salaries from the Rocky Mountains and the Outlying Areas. Previous students from the Massachusetts Institute of Technology are leading with an average salary of $125,100, while students from the Pontifical Catholic University of Puerto Rico-Mayaguez are coming out with an average salary of $19,000.");
+          });
 
   form.append('label')
     .html('Salary');
@@ -98,7 +100,10 @@ d3.csv("colleges100.csv", function(error, data) {
       .attr('name', 'toggle')
       .on('click', function () {
         sortBy(data, node, 'Admission Rate');
-      });
+        d3.select('#story-header').select('text').text("Admission Rate");
+        d3.select('#pg-story').select('text')
+          .text("Private schools from any region seem to be a lot more selective in terms of admitting students into their schools. One would probably have a difficult time finding the highest or lowest overall admission rates for a certain region, since these types of values seem to spread all over the mosaic chart. The world-renown Stanford University provides a significantly low admission rate of 5.69%, while the public college, CUNY York, gives us a higher admission rate of 35.1%.");
+        });
 
   form.append('label')
       .html('Admission Rate');
@@ -109,7 +114,10 @@ d3.csv("colleges100.csv", function(error, data) {
       .attr('name', 'toggle')
       .on('click', function () {
         sortBy(data, node, 'Average Cost');
-      });
+        d3.select('#story-header').select('text').text("Average Cost");
+        d3.select('#pg-story').select('text')
+          .text("Along with having remarkably lower admission rates, private schools also take the lead with their costs of attendance. In terms of regions, colleges from the Mid-Atlantic and New England regions seem to have the higher overall costs of attendance. The Great Plains’ very own Washington University in St. Louis leads in expenses with an average cost of $62,594, while the University of Puerto Rico-Bayamon asks their prospective students for a more reasonable payment of $8,509.");
+        });
 
   form.append('label')
       .html('Average Cost');
@@ -120,6 +128,9 @@ d3.csv("colleges100.csv", function(error, data) {
       .attr('name', 'toggle')
       .on('click', function () {
         sortBy(data, node, 'Median Debt');
+        d3.select('#story-header').select('text').text("Median Debt");
+        d3.select('#pg-story').select('text')
+          .text("While the period of attending college and getting a degree is enjoyable for some students, accumulating debt with bundles of loans is quite the contrary. Students attending colleges in the Mid-Atlantic and New England regions seem to accumulate the most overall debt while in school. Private college students traditionally have the highest amount of debt, but some of the higher amounts from the researched data are surprisingly from public colleges. Students from Babson College and the College of the Holy Cross are ending up with a median debt of $27,000, while those from University of Puerto Rico-Bayamon have a median debt of $4,500.");
       });
 
   form.append('label')
